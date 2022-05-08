@@ -46,6 +46,18 @@ client.getAllCharacters(characterQuery)
 The above example will get all characters, that have a race of Hobbit or Human, and will sort the results by name in descending order.
 Providing the sort options is optional and not required.
 
+In this way, you can also have more combinations of queries like so:
+
+```
+characterQuery = { 'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                   'gender': {'operator': '=', 'value': 'Male' },
+                   'limit' : {'operator': '=', 'value': '3'},
+                   'sort': { 'criteria': 'name', 'order': 'desc'} }
+client.getAllCharacters(characterQuery)
+```
+
+This should work with any of the supported query-types of the original API.
+
 # List of Client methods with examples:
 
 - client.getAllCharacters()
