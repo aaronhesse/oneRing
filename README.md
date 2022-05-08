@@ -8,7 +8,7 @@ This is a python3 library sdk for interfacing with a publically available Lord o
 
 ## Installation
 
-oneRing requires [python3 requests](https://pypi.org/project/requests/), and [python3 urllib3](https://pypi.org/project/urllib3) to run.
+oneRing requires [python3 requests](https://pypi.org/project/requests/) to run.
 
 Install oneRing from PyPI.
 
@@ -34,6 +34,17 @@ or
 ```
 client.getBookById('5cf5805fb53e011a64671582')
 ```
+
+You can also pass in more complicated queries to access the more advanced features of the original API:
+
+```
+characterQuery = {'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                  'sort': { 'criteria': 'name', 'order': 'desc'} }
+client.getAllCharacters(characterQuery)
+```
+
+The above example will get all characters, that have a race of Hobbit or Human, and will sort the results by name in descending order.
+Providing the sort options is optional and not required.
 
 # List of Client methods with examples:
 
