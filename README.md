@@ -8,7 +8,7 @@ This is a python3 library sdk for interfacing with a publically available Lord o
 
 ## Installation
 
-oneRing requires [python3 requests](https://pypi.org/project/requests/) to run.
+oneRing requires [python3 requests](https://pypi.org/project/requests/), and [python3 urllib3](https://pypi.org/project/urllib3) to run.
 
 Install oneRing from PyPI.
 
