@@ -13,7 +13,7 @@ oneRing requires [python3 requests](https://pypi.org/project/requests/), and [py
 Install oneRing from PyPI.
 
 ```
-pip install oneRing
+pip install oneRing-SDK
 ```
 
 # Usage
