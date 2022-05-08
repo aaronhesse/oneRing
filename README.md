@@ -8,7 +8,7 @@ This is a python3 library sdk for interfacing with a publically available Lord o
 
 ## Installation
 
-oneRing requires [python3 requests](https://pypi.org/project/requests/), and [python3 urllib3](https://pypi.org/project/urllib3) to run.
+oneRing requires [python3 requests](https://pypi.org/project/requests/) to run.
 
 Install oneRing from PyPI.
 
@@ -34,6 +34,45 @@ or
 ```
 client.getBookById('5cf5805fb53e011a64671582')
 ```
+
+You can also pass in more complicated queries to access the more advanced features of the original API:
+
+```
+characterQuery = {'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                  'sort': { 'criteria': 'name', 'order': 'desc'} }
+client.getAllCharacters(characterQuery)
+```
+
+The above example will get all characters, that have a race of Hobbit or Human, and will sort the results by name in descending order.
+Providing the sort options is optional and not required.
+
+In this way, you can also have more combinations of queries like so:
+
+```
+characterQuery = { 'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                   'gender': {'operator': '=', 'value': 'Male' },
+                   'limit' : {'operator': '=', 'value': '3'},
+                   'sort': { 'criteria': 'name', 'order': 'desc'} }
+client.getAllCharacters(characterQuery)
+```
+
+This should work with any of the supported query-types of the original API.
+
+# Testing
+
+To test the responses of the API, you can do the following:
+
+```
+
+characterQuery = { 'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                   'gender': {'operator': '=', 'value': 'Male' },
+                   'limit' : {'operator': '=', 'value': '3'},
+                   'sort': { 'criteria': 'name', 'order': 'desc'} }
+jsonData = client.getAllCharacter(characterQuery)
+print(json.dumps(jsonData, indent=4))
+```
+
+This will print out the entire response object returned from the underlying api. This applies to any of the client methods, they all return the raw json returned from the underlying API.
 
 # List of Client methods with examples:
 
