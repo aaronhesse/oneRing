@@ -58,6 +58,22 @@ client.getAllCharacters(characterQuery)
 
 This should work with any of the supported query-types of the original API.
 
+# Testing
+
+To test the responses of the API, you can do the following:
+
+```
+
+characterQuery = { 'race': { 'operator': '=', 'value': 'Hobbit,Human' },
+                   'gender': {'operator': '=', 'value': 'Male' },
+                   'limit' : {'operator': '=', 'value': '3'},
+                   'sort': { 'criteria': 'name', 'order': 'desc'} }
+jsonData = client.getAllCharacter(characterQuery)
+print(json.dumps(jsonData, indent=4))
+```
+
+This will print out the entire response object returned from the underlying api. This applies to any of the client methods, they all return the raw json returned from the underlying API.
+
 # List of Client methods with examples:
 
 - client.getAllCharacters()
