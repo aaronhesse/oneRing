@@ -29,10 +29,7 @@ class Client(object):
                 path += '?' + queryParams
 
         if "authenticate" in kwargs:
-            headers = {}
-            if kwargs['authenticate']:
-                headers = {'Authorization':"Bearer " + self.g_apiKey}
-
+            headers = {'Authorization':"Bearer " + self.g_apiKey} if kwargs['authenticate'] else {}
             return requests.get(self.BASE_URL + path, headers=headers).json()
 
 
