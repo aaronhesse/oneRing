@@ -35,7 +35,7 @@ class Client(object):
     # Book functions:
 
     def getAllBooks(self, options_dict=None):
-        return self.__makeRequest(path="book", authenticate=True, options=options_dict)
+        return self.__makeRequest(path="book", authenticate=False, options=options_dict)
 
     def getBookById(self, book_id):
         return self.getAllBooks({"_id": { "operator": "=", "value": book_id}})
@@ -51,7 +51,7 @@ class Client(object):
         return self.__makeRequest(path="chapter", authenticate=True, options=options_dict)
 
     def getAllChaptersOfBook(self, book_id):
-        return self.__makeRequest(path="book/" + book_id + "/chapter", authenticate=True)
+        return self.__makeRequest(path="book/" + book_id + "/chapter", authenticate=False)
 
     def getChapterById(self, chapter_id):
         return self.getAllChapters({"_id": { "operator": "=", "value": chapter_id}})
