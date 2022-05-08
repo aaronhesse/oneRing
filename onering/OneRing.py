@@ -1,5 +1,4 @@
 import requests
-import urllib.parse
 
 class Client(object):
 
@@ -25,8 +24,7 @@ class Client(object):
                         queryParams += param + options[param]['operator'] + options[param]['value'] + "&"
                     else:
                         queryParams += 'sort=' + options['sort']['criteria'] + ':' + options['sort']['order']
-                queryParams = urllib.parse.quote(queryParams[:-1])
-                path += '?' + queryParams
+                path += '?' + queryParams[:-1]
 
         if "authenticate" in kwargs:
             headers = {'Authorization':"Bearer " + self.g_apiKey} if kwargs['authenticate'] else {}
